@@ -50,6 +50,7 @@ int makeAlpha(const char *front_name, const char *back_name)
         {
             if (noSSE(front, back, src))   return -1;
         }
+
     
         texture.update((const sf::Uint8 *) src);
         

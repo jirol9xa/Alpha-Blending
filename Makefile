@@ -1,6 +1,6 @@
 CC 			= g++
 C_FLAGS 	= -c -O3 -msse4.2 
-I_FLAG		= -I ./
+I_FLAG		= -I ./blend
 DEBUG_FLAGS = -fsanitize=address,leak,undefined -Wall -g
 SFML_FLAGS 	= -lsfml-graphics -lsfml-window -lsfml-system
 
@@ -14,9 +14,9 @@ clear:
 	rm -rf *.o
 
 
-alpha.o: alpha.cpp
-	$(CC) $(C_FLAGS) alpha.cpp $(I_FLAG)
-draw.o: draw.cpp
-	$(CC) $(C_FLAGS) draw.cpp  $(I_FLAG)
-main.o: main.cpp
-	$(CC) $(C_FLAGS) main.cpp  $(I_FLAG)
+alpha.o: ./blend/alpha.cpp
+	$(CC) $(C_FLAGS) ./blend/alpha.cpp $(I_FLAG)
+draw.o: ./blend/draw.cpp
+	$(CC) $(C_FLAGS) ./blend/draw.cpp  $(I_FLAG)
+main.o: ./blend/main.cpp
+	$(CC) $(C_FLAGS) ./blend/main.cpp  $(I_FLAG)
