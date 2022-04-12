@@ -38,6 +38,10 @@ int makeAlpha(const char *front_name, const char *back_name)
     double        fps = 0;
     std::string   str;
 
+    sf::Clock clock2;
+    double    fps2 = 0;
+    double    time = 0;
+
     while (window.isOpen())
     {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) window.close();
@@ -66,7 +70,14 @@ int makeAlpha(const char *front_name, const char *back_name)
         FPS.setString(str);
         window.draw(FPS);
         window.display();
+
+        fps2++;
+        time = clock2.getElapsedTime().asSeconds();
+
+        if (fps2 >= 10)  break;
     }
+
+    printf("%lg\n", time);
 
     free(src);
     return 0;
